@@ -43,3 +43,35 @@
 - Commit message: `Rebuild homepage desktop from Figma frame`
 - Branch: `main`
 - Remote: `origin https://github.com/docteurmeo/WWF-CoBien-Site.git`
+
+## 2026-05-23 - Add 1920px desktop responsive behavior
+
+**Scope**
+
+- Updated Homepage desktop behavior for wide screens such as 1920px.
+- Kept the 1440px Figma canvas/grid centered so all in-grid object positions and dimensions remain unchanged.
+- Extended section backgrounds to full viewport width to remove the left/right gaps on wide displays.
+- Updated full-bleed visual assets such as waves, hero grass, seagrass grass, and dual CTA image panels so they expand across the viewport without changing the 1440px content grid.
+- Kept in-grid objects fixed to their original Figma-derived coordinates.
+
+**Implementation notes**
+
+- Added desktop CSS variables:
+  - `--fig-canvas: 1440px`
+  - `--fig-offset`
+  - `--fig-full`
+  - `--page-pad`
+- Used section pseudo-backgrounds for full-bleed color/gradient bands.
+- Kept horizontal overflow hidden at page level while allowing section visuals to extend beyond the centered canvas.
+- Made the final dual CTA image band full viewport width while preserving text alignment to the centered 1440px grid.
+
+**Verification**
+
+- Ran `npm run build` successfully.
+- Captured and reviewed a 1920px full-page screenshot:
+  - `homepage-1920-responsive-final.png`
+
+**Known open work**
+
+- The current pass targets desktop/wide desktop only.
+- Mobile remains intentionally out of scope for this phase.
