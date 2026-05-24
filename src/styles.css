@@ -2047,6 +2047,7 @@ footer nav {
     top: 668px;
     width: 290px;
     height: 182px;
+    z-index: 4;
     object-fit: contain;
   }
 
@@ -2057,17 +2058,45 @@ footer nav {
     width: var(--fig-full);
     height: auto;
     max-width: none;
+    z-index: 3;
     transform: translateX(-50%);
   }
 
-  .fig-hero-wave {
+  .code-wave {
     position: absolute;
     left: 50%;
-    bottom: 0;
-    width: var(--fig-full);
-    height: auto;
-    max-width: none;
+    width: 100vw;
+    height: var(--wave-h);
+    overflow: hidden;
+    pointer-events: none;
     transform: translateX(-50%);
+  }
+
+  .code-wave svg {
+    width: 120vw;
+    height: 100%;
+    max-width: none;
+    transform: translateX(-10vw);
+  }
+
+  .code-wave path {
+    fill: var(--wave-fill);
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .code-wave-main {
+    animation: figWaveDrift 13s ease-in-out infinite alternate;
+  }
+
+  .code-wave-soft {
+    opacity: .28;
+    animation: figWaveDriftReverse 18s ease-in-out infinite alternate;
+  }
+
+  .fig-hero-wave {
+    bottom: 0;
+    z-index: 2;
   }
 
   .fig-scroll-cue {
@@ -2274,19 +2303,12 @@ footer nav {
   }
 
   .fig-bridge-wave {
-    position: absolute;
-    left: 50%;
-    width: var(--fig-full);
-    height: auto;
-    max-width: none;
     z-index: 2;
-    pointer-events: none;
-    transform: translateX(-50%);
   }
 
   .fig-bridge-wave-top {
     top: 0;
-    transform: translateX(-50%) rotate(180deg);
+    transform: translateX(-50%) scaleY(-1);
   }
   .fig-bridge-wave-bottom { bottom: 0; }
 
@@ -2297,10 +2319,10 @@ footer nav {
   .fig-s4-b5 { left: 820px; top: 380px; width: 14px; height: 14px; }
   .fig-s4-b6 { left: 480px; top: 420px; width: 22px; height: 22px; }
 
-  .fig-bridge > div {
+  .fig-bridge-copy {
     position: absolute;
     z-index: 3;
-    top: 140px;
+    top: 118px;
     width: 780px;
     text-align: center;
   }
@@ -2321,6 +2343,23 @@ footer nav {
     line-height: 1.18;
     letter-spacing: -.8px;
     text-align: center;
+  }
+
+  @keyframes figWaveDrift {
+    from { transform: translateX(-18px); }
+    to { transform: translateX(18px); }
+  }
+
+  @keyframes figWaveDriftReverse {
+    from { transform: translateX(22px); }
+    to { transform: translateX(-22px); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .code-wave-main,
+    .code-wave-soft {
+      animation: none;
+    }
   }
 
   .fig-seagrass {

@@ -80,6 +80,27 @@ function Wave({ color = 'cream' }: { color?: 'cream' | 'paper' | 'mint' | 'deep'
   return <div className={`wave wave-${color}`} />;
 }
 
+function CodeWave({ className = '', fill, height = 72 }: { className?: string; fill: string; height?: number }) {
+  return (
+    <div
+      className={`code-wave ${className}`}
+      style={{ '--wave-fill': fill, '--wave-h': `${height}px` } as React.CSSProperties}
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 1440 96" preserveAspectRatio="none" focusable="false">
+        <path
+          className="code-wave-main"
+          d="M0 35C120 11 245 18 374 37C522 59 650 63 760 38C910 5 1030 18 1166 39C1289 58 1375 55 1440 29V96H0V35Z"
+        />
+        <path
+          className="code-wave-soft"
+          d="M0 49C150 22 282 18 430 42C570 64 690 48 810 28C956 4 1088 23 1220 45C1326 63 1398 54 1440 39V96H0V49Z"
+        />
+      </svg>
+    </div>
+  );
+}
+
 function Home() {
   return (
     <main className="fig-home">
@@ -102,7 +123,7 @@ function Home() {
         <img className="fig-hero-fish" src={A + 'figma-home/hero-fish.png'} alt="" />
         <img className="fig-hero-turtle" src={A + 'figma-home/hero-turtle.png'} alt="" />
         <img className="fig-hero-grass" src={A + 'figma-home/hero-grass.svg'} alt="" />
-        <img className="fig-hero-wave" src={A + 'figma-home/hero-wave.svg'} alt="" />
+        <CodeWave className="fig-hero-wave" fill="#f5edd8" height={62} />
         <span className="fig-scroll-cue">↓ cuộn để khám phá</span>
       </section>
 
@@ -147,15 +168,15 @@ function Home() {
       </section>
 
       <section className="fig-bridge">
-        <img className="fig-bridge-wave fig-bridge-wave-top" src={A + 'figma-home/s4-wave-top.svg'} alt="" />
-        <img className="fig-bridge-wave fig-bridge-wave-bottom" src={A + 'figma-home/s4-wave-bottom.svg'} alt="" />
+        <CodeWave className="fig-bridge-wave fig-bridge-wave-top" fill="#f8f5ef" height={54} />
+        <CodeWave className="fig-bridge-wave fig-bridge-wave-bottom" fill="#225322" height={86} />
         <span className="fig-bubble fig-s4-b1" />
         <span className="fig-bubble fig-s4-b2" />
         <span className="fig-bubble fig-s4-b3" />
         <span className="fig-bubble fig-s4-b4" />
         <span className="fig-bubble fig-s4-b5" />
         <span className="fig-bubble fig-s4-b6" />
-        <div>
+        <div className="fig-bridge-copy">
           <p>Bữa ăn bạn vừa thưởng thức.</p>
           <p>Mặt nước trong xanh bạn đang bơi.</p>
           <p>Bãi biển chưa bị xói lở.</p>

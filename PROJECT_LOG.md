@@ -75,3 +75,29 @@
 
 - The current pass targets desktop/wide desktop only.
 - Mobile remains intentionally out of scope for this phase.
+
+## 2026-05-24 - Replace fixed SVG waves with code waves
+
+**Scope**
+
+- Replaced fixed exported wave SVGs on Homepage with inline code-generated wave layers.
+- Fixed wave height across viewport widths so waves no longer scale taller on 1920px screens.
+- Added subtle wave drift animation for a light ocean motion effect.
+- Added `prefers-reduced-motion` handling to disable wave animation when requested by the user/browser.
+- Adjusted wave layer stacking so the hero wave does not cover the seagrass strip or turtle.
+- Fixed Section 4 bridge layout by separating the bridge copy selector from decorative wave `div` elements.
+- Removed unused fixed wave SVG assets from `public/assets/figma-home`.
+
+**Verification**
+
+- Ran `npm run build` successfully.
+- Checked local screenshots:
+  - `wave-hero-1920-final.png`
+  - `wave-full-1920-final.png`
+  - `wave-bridge-crop-final.png`
+  - `wave-full-1440-final.png`
+
+**Known open work**
+
+- This pass only changes Homepage desktop/wide desktop wave behavior.
+- Mobile remains intentionally out of scope for this phase.
