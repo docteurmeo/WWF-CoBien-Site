@@ -83,10 +83,12 @@
 - Replaced fixed exported wave SVGs on Homepage with inline code-generated wave layers.
 - Fixed wave height across viewport widths so waves no longer scale taller on 1920px screens.
 - Added subtle wave drift animation for a light ocean motion effect.
+- Increased wave motion amplitude after production review so the movement is visible instead of barely perceptible.
 - Added `prefers-reduced-motion` handling to disable wave animation when requested by the user/browser.
 - Adjusted wave layer stacking so the hero wave does not cover the seagrass strip or turtle.
 - Fixed Section 4 bridge layout by separating the bridge copy selector from decorative wave `div` elements.
 - Removed unused fixed wave SVG assets from `public/assets/figma-home`.
+- Fixed missing deployed PNG assets by force-tracking ignored nested PNG files used by the Homepage.
 
 **Verification**
 

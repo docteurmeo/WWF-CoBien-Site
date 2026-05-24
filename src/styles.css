@@ -2346,13 +2346,15 @@ footer nav {
   }
 
   @keyframes figWaveDrift {
-    from { transform: translateX(-18px); }
-    to { transform: translateX(18px); }
+    0% { transform: translate(-34px, 0); }
+    50% { transform: translate(0, -5px); }
+    100% { transform: translate(34px, 3px); }
   }
 
   @keyframes figWaveDriftReverse {
-    from { transform: translateX(22px); }
-    to { transform: translateX(-22px); }
+    0% { transform: translate(42px, 2px); }
+    50% { transform: translate(0, 6px); }
+    100% { transform: translate(-42px, -2px); }
   }
 
   @media (prefers-reduced-motion: reduce) {
