@@ -4,3 +4,5 @@ dist
 *.tsbuildinfo
 *.png
 !public/assets/*.png
+!public/assets/**/*.png
+!docs/assets/**/*.png
